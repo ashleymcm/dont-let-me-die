@@ -3,5 +3,4 @@ node_modules
 .idea/
 alerts.json
 ideas/
-.env
 package-lock.json
