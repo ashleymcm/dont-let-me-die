@@ -45,23 +45,43 @@ class Alert {
 
   postToChannel (url) {
     debug('posting to channel');
-    return axios.post(url || process.env.SLACK_WEBHOOK, { text: 'You have a new alert', blocks: template.fill(this), replace_original: true });
+    return axios.post(url || process.env.SLACK_WEBHOOK, {
+      text: 'You have a new alert',
+      blocks: template.fill(this, this.emergency),
+      replace_original: true
+    });
   }
 
   chatNotify (slackUserId, isActionable) {
     debug('notifying in chat');
     var message = template.fill(this, isActionable);
     message.unshift(
-      {
-        type: 'section',
-        text: {
-          type: 'plain_text',
-          text: 'You\'ve been assigned an alert'
+        {
+          type: 'section',
+          text: {
+            type: 'plain_text',
+            text: 'You\'ve volunteered to help. Here\'s some contact info'
+          }
+          },
+        {
+          type: 'divider'
+        },
+        {
+          type: 'section',
+          fields: [
+            {
+              type: "mrkdwn",
+              text: "*Phone number:*\n(416)-967-1111"
+            },
+            {
+              type: "mrkdwn",
+              text: "*Address:*\n42 Wallaby Way"
+            }
+          ]
+        },
+        {
+          type: 'divider'
         }
-      },
-      {
-        type: 'divider'
-      }
     );
     axios.post('https://slack.com/api/im.open', qs.stringify({
       token: process.env.SLACK_TOKEN,

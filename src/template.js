@@ -6,7 +6,7 @@
  * @param {boolean} isActionable - Should message actions be shown?
  */
 const fill = (alert, isActionable) => {
-  isActionable = isActionable === undefined ? true : isActionable;
+  isActionable = isActionable === undefined ? false : isActionable;
   let urgencyText = alert.emergency ? "🔥 Somebody should check up!" : "⚠️"
 
   let header_block = {
@@ -24,7 +24,7 @@ const fill = (alert, isActionable) => {
       action_id: `claim.${alert.id}`,
       text: {
         type: 'plain_text',
-        text: 'Claim'
+        text: 'Check up'
       }
     };
   }
