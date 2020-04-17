@@ -54,8 +54,8 @@ class Alert {
 
   chatNotify (slackUserId, isActionable) {
     debug('notifying in chat');
-    var message = template.fill(this, isActionable);
-    message.unshift(
+
+    let blocks = [
         {
           type: 'section',
           text: {
@@ -78,17 +78,14 @@ class Alert {
               text: "*Address:*\n42 Wallaby Way"
             }
           ]
-        },
-        {
-          type: 'divider'
-        }
-    );
+        }];
+
     axios.post('https://slack.com/api/im.open', qs.stringify({
       token: process.env.SLACK_TOKEN,
       user: slackUserId
     })).then(result => {
       if (result.data.ok) {
-        const body = { token: process.env.SLACK_TOKEN, channel: result.data.channel.id, blocks: JSON.stringify(message), text: 'You have a new alert' };
+        const body = { token: process.env.SLACK_TOKEN, channel: result.data.channel.id, blocks: JSON.stringify(blocks), text: 'You have a new alert' };
         return axios.post('https://slack.com/api/chat.postMessage', qs.stringify(body));
       }
     })
