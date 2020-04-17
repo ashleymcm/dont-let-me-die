@@ -9,12 +9,12 @@ describe('Slack Webhook Tests', () => {
         return [host, path];
     };
 
-    const [host, path] = parseUrlForNock(process.env.SLACK_WEBHOOK_URL);
+    const [host, path] = parseUrlForNock("http://localhost:5000/incoming");
 
     const nockSendMessage = (responseCode) => {
-        nock(host)
+        nock("http://localhost:5000")
             .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
-            .post(path)
+            .post("/incoming")
             .reply(responseCode)
     };
 

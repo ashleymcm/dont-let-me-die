@@ -1,4 +1,3 @@
-// add code that controls how often we ping external biometric apis
 require('dotenv').config();
 const Dexcom = require ("./biometrics/dexcom-g6");
 const SlackWebhook = require("./webhooks/slack");
@@ -41,7 +40,7 @@ const handleDexcomReading = reading => {
     }
 };
 
-const dexcomListener = setInterval(async () => {
+exports.dexcomListener = setInterval(async () => {
     // three strikes and you're out?
     if (strikes > 2) {
         // STOP STUFF I GUESS
