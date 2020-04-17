@@ -1,5 +1,5 @@
 const nock = require('nock');
-const SlackWebhook = require("../../../webhooks/slack");
+const SlackWebhook = require("./../../webhooks/slack");
 
 describe('Slack Webhook Tests', () => {
     const parseUrlForNock = (url) => {

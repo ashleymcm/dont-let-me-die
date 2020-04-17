@@ -1,5 +1,5 @@
 const nock = require('nock');
-const Dexcom = require ("../..biometrics/dexcom-g6");
+const Dexcom = require ("./../../biometrics/dexcom-g6");
 
 
 describe('Slack Webhook Tests', () => {
