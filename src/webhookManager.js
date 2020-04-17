@@ -1,7 +1,7 @@
 // add code that controls how often we ping external biometric apis
 require('dotenv').config();
-const Dexcom = require ("./biometrics/dexcom-g6");
-const SlackWebhook = require("./webhooks/slack");
+const Dexcom = require ("../biometrics/dexcom-g6");
+const SlackWebhook = require("../webhooks/slack");
 
 /* TODO: accept call to turn on listening */
 /* TODO: accept call to turn off listening */

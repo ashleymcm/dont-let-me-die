@@ -31,8 +31,9 @@
     "node-json-db": "^1.0.3",
     "qs": "^6.9.3",
     "querystring": "^0.2.0",
-    "tsscmp": "^1.0.6"},
-    "devDependencies": {
-      "nodemon": "^2.0.2"
+    "tsscmp": "^1.0.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
