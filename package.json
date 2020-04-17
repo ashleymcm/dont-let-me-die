@@ -2,36 +2,34 @@
   "name": "dont-let-me-die",
   "private": true,
   "version": "0.0.1",
-  "description": "Slack app that shows how incoming webhooks and interactive messages can be used to build a simple helpdesk integration",
-  "author": "Ashley <opensource@slack-corp.com>",
-  "contributors": [
-    {
-      "name": "Ankur Oberoi",
-      "email": "aoberoi@gmail.com",
-      "url": "https://aoberoi.me"
-    },
-    {
-      "name": "Tomomi Imura",
-      "email": "opensource@slack.com",
-      "url": "https://girliemac.com"
-    },
-    {
-      "name": "David Pichsenmeister",
-      "email": "opensource@slack.com"
-    }
-  ],
+  "description": "Taplytics #StayConnected Hackday Project",
+  "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --setupFiles dotenv/config"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ashleymcm@github.com/ashleymcm/dont-let-me-die.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashleymcm/dont-let-me-die/issues"
+  },
+  "homepage": "https://github.com/ashleymcm/dont-let-me-die#readme",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "debug": "^4.1.1",
-    "dotenv": "^6.2.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jest": "^25.3.0",
+    "nock": "^12.0.3",
     "node-json-db": "^1.0.3",
+    "qs": "^6.9.3",
     "querystring": "^0.2.0",
     "tsscmp": "^1.0.6"
   },

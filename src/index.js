@@ -6,6 +6,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const signature = require('./verifySignature');
 const Alert = require('./alert').Alert;
+const webhookManager = require('./webhookManager');
 const debug = require('debug')('actionable-notifications:index');
 
 const app = express();
